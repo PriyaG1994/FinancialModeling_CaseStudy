@@ -1,0 +1,542 @@
+/* 
+ * K-Beauty Skincare Products App - CSS Styles
+ * This file contains all the styling for the skincare products application
+ * Organized by sections: Reset, Layout, Components, Responsive Design
+ */
+
+/* ===== CSS RESET AND BASE STYLES ===== */
+/* Remove default browser styling and set consistent base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+/* Set base font and background for the entire page */
+body {
+    font-family: 'Poppins', sans-serif; /* Modern, clean font from Google Fonts */
+    line-height: 1.6; /* Improved readability with proper line spacing */
+    color: #333; /* Dark gray text for good contrast */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Beautiful gradient background */
+    min-height: 100vh; /* Ensure body covers full viewport height */
+}
+
+/* ===== LAYOUT CONTAINERS ===== */
+/* Container class for consistent max-width and centering across sections */
+.container {
+    max-width: 1200px; /* Limit content width for better readability */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 0 20px; /* Add horizontal padding for mobile devices */
+}
+
+/* ===== HEADER SECTION ===== */
+/* Main header containing logo and search functionality */
+.header {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Modern glass effect */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: sticky; /* Keep header visible when scrolling */
+    top: 0;
+    z-index: 100; /* Ensure header stays above other content */
+    padding: 20px 0;
+}
+
+/* Header container layout */
+.header .container {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-between; /* Space logo and search apart */
+    align-items: center; /* Vertically center items */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px; /* Space between items when they wrap */
+}
+
+/* Logo section styling */
+.logo h1 {
+    color: #667eea; /* Brand color matching the gradient */
+    font-size: 2.2rem; /* Large, prominent title */
+    font-weight: 700; /* Bold font weight */
+    margin-bottom: 5px;
+}
+
+.logo p {
+    color: #666; /* Subtle gray for description */
+    font-size: 0.9rem;
+    font-weight: 300; /* Light font weight */
+}
+
+/* Search container layout */
+.search-container {
+    display: flex; /* Horizontal layout for input and button */
+    gap: 10px; /* Space between input and button */
+    align-items: center;
+}
+
+/* Search input field styling */
+.search-input {
+    padding: 12px 16px; /* Comfortable padding for touch targets */
+    border: 2px solid #e0e0e0; /* Light gray border */
+    border-radius: 25px; /* Rounded corners for modern look */
+    font-size: 1rem;
+    width: 300px; /* Fixed width for desktop */
+    transition: all 0.3s ease; /* Smooth transitions for interactions */
+    outline: none; /* Remove default focus outline */
+}
+
+/* Search input focus state */
+.search-input:focus {
+    border-color: #667eea; /* Brand color on focus */
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); /* Subtle glow effect */
+}
+
+/* Search button styling */
+.search-btn {
+    background: #667eea; /* Brand color background */
+    color: white;
+    border: none;
+    padding: 12px 16px; /* Match input padding */
+    border-radius: 25px; /* Match input border radius */
+    cursor: pointer; /* Show clickable cursor */
+    transition: all 0.3s ease; /* Smooth hover transitions */
+    font-size: 1rem;
+}
+
+/* Search button hover effect */
+.search-btn:hover {
+    background: #5a67d8; /* Darker shade on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3); /* Enhanced shadow */
+}
+
+/* ===== MAIN CONTENT AREA ===== */
+.main-content {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    margin: 20px auto; /* Center with top/bottom margin */
+    border-radius: 20px; /* Rounded corners for modern card look */
+    backdrop-filter: blur(10px); /* Glass effect */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Prominent shadow */
+    padding: 40px 0; /* Vertical padding */
+    min-height: 70vh; /* Minimum height to fill most of viewport */
+}
+
+/* ===== FILTERS SECTION ===== */
+.filters-section {
+    margin-bottom: 40px; /* Space below filter section */
+}
+
+.filters-section h2 {
+    color: #333; /* Dark text for good contrast */
+    font-size: 1.8rem;
+    font-weight: 600; /* Semi-bold */
+    margin-bottom: 20px; /* Space below heading */
+    text-align: center; /* Center the heading */
+}
+
+/* Category filters container */
+.category-filters {
+    display: flex; /* Horizontal layout for filter buttons */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 12px; /* Space between filter buttons */
+    justify-content: center; /* Center the filter buttons */
+    margin-bottom: 20px;
+}
+
+/* Individual filter button styling */
+.filter-btn {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border: 2px solid #e0e0e0; /* Light border */
+    color: #666; /* Gray text */
+    padding: 12px 20px; /* Comfortable padding */
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer; /* Clickable cursor */
+    font-size: 0.9rem;
+    font-weight: 500; /* Medium font weight */
+    transition: all 0.3s ease; /* Smooth transitions */
+    display: flex; /* Layout for icon and text */
+    align-items: center; /* Vertically center content */
+    gap: 8px; /* Space between icon and text */
+}
+
+/* Filter button hover effect */
+.filter-btn:hover {
+    background: rgba(102, 126, 234, 0.1); /* Light brand color background */
+    border-color: #667eea; /* Brand color border */
+    color: #667eea; /* Brand color text */
+    transform: translateY(-2px); /* Subtle lift */
+}
+
+/* Active filter button (currently selected category) */
+.filter-btn.active {
+    background: #667eea; /* Full brand color background */
+    border-color: #667eea; /* Matching border */
+    color: white; /* White text for contrast */
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3); /* Enhanced shadow */
+}
+
+/* ===== PRODUCTS SECTION ===== */
+.products-section {
+    margin-top: 20px;
+}
+
+/* Products header with count and sorting */
+.products-header {
+    display: flex; /* Horizontal layout */
+    justify-content: space-between; /* Space count and sort apart */
+    align-items: center; /* Vertically center items */
+    margin-bottom: 30px; /* Space below header */
+    flex-wrap: wrap; /* Allow wrapping on mobile */
+    gap: 20px;
+}
+
+/* Products count display */
+.products-count {
+    font-size: 1.1rem;
+    color: #666; /* Gray text */
+    font-weight: 500; /* Medium weight */
+}
+
+.products-count span {
+    color: #667eea; /* Highlight the number in brand color */
+    font-weight: 700; /* Bold number */
+}
+
+/* Sort container styling */
+.sort-container {
+    display: flex; /* Horizontal layout */
+    align-items: center; /* Vertically center */
+    gap: 10px; /* Space between label and select */
+}
+
+.sort-container label {
+    font-weight: 500; /* Medium weight */
+    color: #666; /* Gray text */
+}
+
+/* Sort dropdown styling */
+#sortSelect {
+    padding: 8px 12px; /* Comfortable padding */
+    border: 2px solid #e0e0e0; /* Light border */
+    border-radius: 8px; /* Slightly rounded corners */
+    background: white; /* White background */
+    font-size: 0.9rem;
+    cursor: pointer; /* Clickable cursor */
+    transition: border-color 0.3s ease; /* Smooth border transition */
+}
+
+#sortSelect:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #667eea; /* Brand color on focus */
+}
+
+/* ===== PRODUCTS GRID ===== */
+/* Grid container for product cards */
+.products-grid {
+    display: grid; /* CSS Grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive columns */
+    gap: 25px; /* Space between grid items */
+    margin-bottom: 40px;
+}
+
+/* Individual product card styling */
+.product-card {
+    background: white; /* White background for cards */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px; /* Internal padding */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth transitions */
+    border: 1px solid #f0f0f0; /* Very light border */
+    position: relative; /* For absolute positioning of elements */
+    overflow: hidden; /* Hide overflow for clean edges */
+}
+
+/* Product card hover effect */
+.product-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+/* Product image placeholder */
+.product-image {
+    width: 100%; /* Full width */
+    height: 180px; /* Fixed height for consistency */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Gradient placeholder */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 15px; /* Space below image */
+    display: flex; /* Center the icon */
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem; /* Large icon size */
+    color: #ccc; /* Light gray icon */
+}
+
+/* Product name styling */
+.product-name {
+    font-size: 1.1rem;
+    font-weight: 600; /* Semi-bold */
+    color: #333; /* Dark text */
+    margin-bottom: 8px; /* Space below name */
+    line-height: 1.3; /* Tighter line spacing for titles */
+}
+
+/* Product brand styling */
+.product-brand {
+    font-size: 0.9rem;
+    color: #667eea; /* Brand color for brand names */
+    font-weight: 500; /* Medium weight */
+    margin-bottom: 8px;
+}
+
+/* Product category tag */
+.product-category {
+    display: inline-block; /* Inline block for tag-like appearance */
+    background: rgba(102, 126, 234, 0.1); /* Light brand color background */
+    color: #667eea; /* Brand color text */
+    padding: 4px 10px; /* Small padding */
+    border-radius: 12px; /* Rounded tag */
+    font-size: 0.8rem; /* Smaller text */
+    font-weight: 500; /* Medium weight */
+    margin-bottom: 10px;
+}
+
+/* Product description */
+.product-description {
+    font-size: 0.9rem;
+    color: #666; /* Gray text */
+    line-height: 1.4; /* Good readability */
+    margin-bottom: 15px;
+}
+
+/* Product price styling */
+.product-price {
+    font-size: 1.2rem;
+    font-weight: 700; /* Bold price */
+    color: #2d3748; /* Dark gray for prominence */
+    margin-bottom: 10px;
+}
+
+/* Product key ingredients */
+.product-ingredients {
+    font-size: 0.8rem;
+    color: #888; /* Light gray */
+    font-style: italic; /* Italic for ingredients */
+}
+
+/* ===== LOADING AND EMPTY STATES ===== */
+/* Loading indicator styling */
+.loading {
+    text-align: center; /* Center the loading content */
+    padding: 60px 20px; /* Generous padding */
+    color: #666; /* Gray text */
+}
+
+.loading i {
+    font-size: 2rem; /* Large spinner icon */
+    color: #667eea; /* Brand color */
+    margin-bottom: 15px;
+}
+
+.loading p {
+    font-size: 1.1rem;
+    font-weight: 500; /* Medium weight */
+}
+
+/* No products found message */
+.no-products {
+    text-align: center; /* Center the content */
+    padding: 60px 20px; /* Generous padding */
+    color: #666; /* Gray text */
+}
+
+.no-products i {
+    font-size: 3rem; /* Large search icon */
+    color: #ccc; /* Light gray */
+    margin-bottom: 20px;
+}
+
+.no-products h3 {
+    font-size: 1.5rem;
+    color: #333; /* Darker text for heading */
+    margin-bottom: 10px;
+    font-weight: 600; /* Semi-bold */
+}
+
+.no-products p {
+    font-size: 1rem;
+    color: #666; /* Gray text */
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Glass effect */
+    text-align: center; /* Center footer content */
+    padding: 30px 0; /* Vertical padding */
+    margin-top: 40px; /* Space above footer */
+    border-radius: 20px 20px 0 0; /* Rounded top corners */
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1); /* Shadow above footer */
+}
+
+.footer p {
+    color: #666; /* Gray text */
+    margin-bottom: 5px; /* Small space between paragraphs */
+    font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* Tablet styles (768px and below) */
+@media (max-width: 768px) {
+    /* Adjust header layout for tablets */
+    .header .container {
+        flex-direction: column; /* Stack logo and search vertically */
+        text-align: center; /* Center content */
+    }
+    
+    /* Adjust logo size for tablets */
+    .logo h1 {
+        font-size: 1.8rem; /* Smaller title */
+    }
+    
+    /* Make search input responsive */
+    .search-input {
+        width: 250px; /* Narrower input */
+    }
+    
+    /* Adjust grid for tablets */
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Smaller minimum width */
+        gap: 20px; /* Smaller gap */
+    }
+    
+    /* Stack products header items */
+    .products-header {
+        flex-direction: column; /* Stack vertically */
+        align-items: center; /* Center items */
+        text-align: center;
+    }
+    
+    /* Adjust filter buttons for tablets */
+    .category-filters {
+        justify-content: center; /* Center buttons */
+    }
+    
+    .filter-btn {
+        padding: 10px 16px; /* Slightly smaller padding */
+        font-size: 0.85rem; /* Smaller text */
+    }
+}
+
+/* Mobile styles (480px and below) */
+@media (max-width: 480px) {
+    /* Reduce container padding for mobile */
+    .container {
+        padding: 0 15px; /* Less horizontal padding */
+    }
+    
+    /* Adjust main content padding */
+    .main-content {
+        margin: 10px auto; /* Smaller margins */
+        padding: 20px 0; /* Less padding */
+        border-radius: 15px; /* Smaller border radius */
+    }
+    
+    /* Mobile logo adjustments */
+    .logo h1 {
+        font-size: 1.6rem; /* Even smaller title */
+    }
+    
+    .logo p {
+        font-size: 0.8rem; /* Smaller description */
+    }
+    
+    /* Mobile search adjustments */
+    .search-container {
+        flex-direction: column; /* Stack search elements */
+        width: 100%;
+    }
+    
+    .search-input {
+        width: 100%; /* Full width input */
+        max-width: 300px; /* But not too wide */
+    }
+    
+    /* Single column grid for mobile */
+    .products-grid {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 15px; /* Smaller gap */
+    }
+    
+    /* Adjust filter buttons for mobile */
+    .category-filters {
+        gap: 8px; /* Smaller gap between buttons */
+    }
+    
+    .filter-btn {
+        padding: 8px 12px; /* Smaller padding */
+        font-size: 0.8rem; /* Smaller text */
+        flex: 1; /* Equal width buttons */
+        min-width: 0; /* Allow shrinking */
+        justify-content: center; /* Center content */
+    }
+    
+    /* Adjust section headings */
+    .filters-section h2 {
+        font-size: 1.5rem; /* Smaller heading */
+    }
+    
+    /* Mobile product card adjustments */
+    .product-card {
+        padding: 15px; /* Less padding */
+    }
+    
+    .product-image {
+        height: 150px; /* Shorter image area */
+    }
+    
+    /* Footer adjustments */
+    .footer {
+        padding: 20px 0; /* Less padding */
+        margin-top: 20px; /* Less top margin */
+    }
+    
+    .footer p {
+        font-size: 0.8rem; /* Smaller text */
+    }
+}
+
+/* ===== UTILITY CLASSES ===== */
+/* Hide elements (used by JavaScript) */
+.hidden {
+    display: none !important;
+}
+
+/* Fade in animation for smooth appearance */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start invisible */
+        transform: translateY(20px); /* Start slightly below */
+    }
+    to {
+        opacity: 1; /* End visible */
+        transform: translateY(0); /* End in normal position */
+    }
+}
+
+/* Pulse animation for loading states */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5; /* Fade to half opacity */
+    }
+    100% {
+        opacity: 1;
+    }
+}
