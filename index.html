@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for responsive design and character encoding -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Beauty Skincare Products</title>
+    
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Main header section with app title and navigation -->
+    <header class="header">
+        <div class="container">
+            <!-- App logo and title -->
+            <div class="logo">
+                <h1><i class="fas fa-spa"></i> K-Beauty Hub</h1>
+                <p>Discover the best Korean skincare products</p>
+            </div>
+            
+            <!-- Search functionality -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+                <button class="search-btn" onclick="searchProducts()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content area -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Category filter section -->
+            <section class="filters-section">
+                <h2>Browse by Category</h2>
+                
+                <!-- Category filter buttons - these will be used to filter products -->
+                <div class="category-filters" id="categoryFilters">
+                    <button class="filter-btn active" data-category="all" onclick="filterByCategory('all')">
+                        <i class="fas fa-th"></i> All Products
+                    </button>
+                    <button class="filter-btn" data-category="cleanser" onclick="filterByCategory('cleanser')">
+                        <i class="fas fa-pump-soap"></i> Cleansers
+                    </button>
+                    <button class="filter-btn" data-category="moisturizer" onclick="filterByCategory('moisturizer')">
+                        <i class="fas fa-tint"></i> Moisturizers
+                    </button>
+                    <button class="filter-btn" data-category="serum" onclick="filterByCategory('serum')">
+                        <i class="fas fa-eye-dropper"></i> Serums
+                    </button>
+                    <button class="filter-btn" data-category="spf" onclick="filterByCategory('spf')">
+                        <i class="fas fa-sun"></i> SPF/Sunscreen
+                    </button>
+                    <button class="filter-btn" data-category="toner" onclick="filterByCategory('toner')">
+                        <i class="fas fa-spray-can"></i> Toners
+                    </button>
+                    <button class="filter-btn" data-category="mask" onclick="filterByCategory('mask')">
+                        <i class="fas fa-mask"></i> Face Masks
+                    </button>
+                    <button class="filter-btn" data-category="exfoliant" onclick="filterByCategory('exfoliant')">
+                        <i class="fas fa-scrubber"></i> Exfoliants
+                    </button>
+                </div>
+            </section>
+
+            <!-- Products display section -->
+            <section class="products-section">
+                <!-- Loading indicator (initially hidden) -->
+                <div class="loading" id="loadingIndicator" style="display: none;">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading products...</p>
+                </div>
+                
+                <!-- Products count and sorting options -->
+                <div class="products-header">
+                    <div class="products-count">
+                        <span id="productsCount">0</span> products found
+                    </div>
+                    
+                    <!-- Sort dropdown for organizing products -->
+                    <div class="sort-container">
+                        <label for="sortSelect">Sort by:</label>
+                        <select id="sortSelect" onchange="sortProducts()">
+                            <option value="name-asc">Name (A-Z)</option>
+                            <option value="name-desc">Name (Z-A)</option>
+                            <option value="brand-asc">Brand (A-Z)</option>
+                            <option value="price-low">Price (Low to High)</option>
+                            <option value="price-high">Price (High to Low)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Grid container for product cards -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Product cards will be dynamically inserted here by JavaScript -->
+                </div>
+                
+                <!-- Message when no products are found -->
+                <div class="no-products" id="noProductsMessage" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <h3>No products found</h3>
+                    <p>Try adjusting your search or filter criteria</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer section -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 K-Beauty Hub. Discover the best Korean skincare products.</p>
+            <p>Made with <i class="fas fa-heart" style="color: #ff6b6b;"></i> for K-Beauty enthusiasts</p>
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
